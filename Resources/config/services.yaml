@@ -1,0 +1,23 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Mpp\LemonWayClientBundle\:
+        resource: '../../*'
+        exclude: '../../{Entity,Repository,Tests,vendor}'
+
+    # Client
+    _instanceof:
+        Mpp\LemonWayClientBundle\Client\LemonWayClientInterface:
+            tags: ['mpp_lemon_way_client.client']
+            bind:
+                $logger: '@logger'
+                $serializer: '@serializer'
+                $cache: '@?cache.mpp_lemon_way_client'
+                $basicAuthToken: '%mpp_lemon_way_client.basic_auth_token%'
+                $basicAuthTokenUrl: '%mpp_lemon_way_client.basic_auth_token_url%'
+
+    Mpp\LemonWayClientBundle\Client\LemonWayClientRegistry: ~
+    Mpp\LemonWayClientBundle\Client\LemonWayClientRegistryInterface: '@Mpp\LemonWayClientBundle\Client\LemonWayClientRegistry'

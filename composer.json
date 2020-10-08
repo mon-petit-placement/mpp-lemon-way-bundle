@@ -11,9 +11,14 @@
       }
     ],
     "require": {
-      "php": ">=7.3",
+      "php": ">=7.2",
+      "eightpoints/guzzle-bundle": "^8.0",
       "symfony/dependency-injection": "^4.0",
+      "symfony/event-dispatcher": "^4.0",
       "symfony/framework-bundle": "^4.0",
+      "symfony/options-resolver": "^4.0",
+      "symfony/property-info": "4.0",
+      "symfony/serializer": "^4.0",
       "ext-json": "*"
     },
     "autoload":{
@@ -25,7 +30,12 @@
         "Tests/"
       ]
     },
+    "suggest": {
+        "symfony/cache": "^4.0"
+    },
     "require-dev": {
-      "phpunit/phpunit": "7"
+      "phpunit/phpunit": "7",
+      "symfony/property-access": "^4.0",
+      "symfony/yaml": "^4.0"
     }
   }

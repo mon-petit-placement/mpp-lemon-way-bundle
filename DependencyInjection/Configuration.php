@@ -15,7 +15,9 @@ class Configuration implements ConfigurationInterface
 
         $treeBuilder->getRootNode()
             ->children()
-                ->arrayNode('data')->end()
+                ->scalarNode('http_client')->isRequired()->cannotBeEmpty()->end()
+                ->scalarNode('basic_auth_token')->isRequired()->cannotBeEmpty()->end()
+                ->scalarNode('basic_auth_token_url')->isRequired()->cannotBeEmpty()->end()
             ->end()
         ;
 

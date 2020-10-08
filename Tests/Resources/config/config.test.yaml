@@ -1,0 +1,21 @@
+eight_points_guzzle:
+    clients:
+        mpp_lemon_way_test:
+            base_url: '%env(LEMON_WAY_BASE_URL)%'
+            options:
+                timeout: 30
+                http_errors: true
+
+framework:
+    property_info:
+        enabled: true
+
+mpp_lemon_way_client:
+    http_client: 'eight_points_guzzle.client.mpp_lemon_way_test'
+
+services:
+    Mpp\LemonWayClientBundle\Client\LemonWayClientDomainRegistry:
+        public: true
+    Mpp\LemonWayClientBundle\Client\LemonWayClientDomainRegistryInterface:
+        alias: 'Mpp\LemonWayClientBundle\Client\LemonWayClientDomainRegistry'
+        public: true
